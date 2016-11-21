@@ -8,12 +8,7 @@
 
        if [ "$4" != "" ]; then
 
-         useradd $2
-         echo "utilizator adaugat"
-         echo -e "$4\n$4" | (passwd $2)
-         mkdir /home/$2
-         chown $2:$2 /home/$2
-         echo "parola utilizator adaugata"
+         useradd $2 -p $(perl -e'print crypt('$4',"aaa")') -m
        else
          echo "lipseste parola utilizatorului"
        fi

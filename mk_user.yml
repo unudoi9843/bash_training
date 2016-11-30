@@ -1,0 +1,10 @@
+- hosts: db
+  sudo: yes
+
+  tasks:
+
+    - name: create user
+      action: user name=ansible state=present
+    - name: add key
+      authorized_key: user=ansible key="{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+      

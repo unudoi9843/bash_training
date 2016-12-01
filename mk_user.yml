@@ -1,10 +1,14 @@
+# ansible-playbook "-e 'NAME=$name KEY=$key_path'" mk_user.yml
+
 - hosts: db
   sudo: yes
+  vars:
+    name: dor
+    key: /home/dor/.ssh/id_rsa.pub
 
   tasks:
 
     - name: create user
-      action: user name=ansible state=present
+      action: user name="{{ name }}" state=present
     - name: add key
-      authorized_key: user=ansible key="{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
-      
+      authorized_key: user="{{ name }}" key="{{ lookup('file', '{{ key }}') }}"

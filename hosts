@@ -45,3 +45,7 @@
 [db]
 127.0.0.1:24     ansible_user=vagrant
 127.0.0.2:23     ansible_user=vagrant
+
+
+[aws]
+35.161.91.195                 ansible_user=ec2-user

@@ -1,6 +1,6 @@
 # ansible-playbook "-e 'NAME=$name KEY=$key_path'" mk_user.yml
 
-- hosts: db
+- hosts: aws
   sudo: yes
   vars:
     name: dor
